@@ -11,37 +11,45 @@ public class Roulette {
         boolean input;
         int counter=0;
         int counter2=0;
+        String color;
         System.out.println("WELCOME! Let's play some Roulette!\n");
         do {
+            int index2 = rand.nextInt(2)+ 1;
+            if (index2 == 1){
+                 color = "black";
+            }else{
+                color="red";
+            }
+
             System.out.println("Enter the type of bet you would like to place (even|odd|high|low): ");
             String bet = keyboard.next();
             System.out.println("Enter you bet amount: ");
             amount = keyboard.nextInt();
             int index = rand.nextInt(36);
             if (index <= 18 && bet.equalsIgnoreCase("low")) {
-                System.out.println("The ball landed on " + index);
+                System.out.println("The ball landed on " + index + " " + color);
                 System.out.println("Congratulations, you've won.");
                 remainingAmount += amount * 2;
                 counter++;
             }else if (index >= 19 && bet.equalsIgnoreCase("high")) {
-                System.out.println("The ball landed on " + index);
+                System.out.println("The ball landed on " + index + " " + color);
                 System.out.println("Congratulations, you've won.");
                 remainingAmount+=amount * 2;
                 counter++;
             }else if (index % 2 == 0 && bet.equalsIgnoreCase("even")) {
-                System.out.println("The ball landed on " + index);
+                System.out.println("The ball landed on " + index + " " + color);
                 System.out.println("Congratulations, you've won.");
                 remainingAmount+=amount * 2;
                 counter++;
 
             } else if (index % 2 != 0 && bet.equalsIgnoreCase("odd")) {
-                System.out.println("The ball landed on " + index);
+                System.out.println("The ball landed on " + index + " " + color);
                 System.out.println("Congratulations, you've won.");
                 remainingAmount+=amount * 2;
                 counter++;
 
             } else {
-                System.out.println("The ball landed on " + index);
+                System.out.println("The ball landed on " + index + " " + color);
                 System.out.println("Sorry, you've lost this bet.");
                 remainingAmount-= amount;
                 counter2++;
